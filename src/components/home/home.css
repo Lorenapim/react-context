@@ -1,0 +1,15 @@
+.home-class{
+    background: rgb(33,37,41);
+    background: linear-gradient(309deg, rgba(33,37,41,1) 7%, rgba(29,74,101,0.41780462184873945) 51%, rgba(28,228,213,1) 100%);
+    color: white;
+    height: 94vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+img {
+    width: 500px;
+}
