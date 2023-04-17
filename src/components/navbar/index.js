@@ -9,10 +9,10 @@ export default () => {
         <>
         <Navbar bg="dark" variant='dark'>
             <Container>
-                <Navbar.Brand>Centro de Acción Climática PUCV</Navbar.Brand>
+                <Navbar.Brand>Rick and Morty Pics</Navbar.Brand>
                 <Nav className="me-auto">
                     <Link className="text-white ms-3 text-decoration-none" to="/">Home</Link>
-                    <Link className="text-white ms-3 text-decoration-none"to="/contacto">Contacto</Link>
+                    <Link className="text-white ms-3 text-decoration-none"to="/contacto">Favorites</Link>
                 </Nav>
             </Container>
         </Navbar>

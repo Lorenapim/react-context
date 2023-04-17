@@ -1,30 +1,37 @@
-import './contacto.css'
-import { Form, Card } from 'react-bootstrap'
-import Button from '../Button'
+import { Container, Row, Col, Card, Button } from 'react-bootstrap'
+import { useContext, useEffect, useState } from 'react';
+import Context from '../../context';
 
 export default () => {
+
+    const [data,setData] = useState([])
+    const {characters,setCharacters} = useContext(Context)
+
+    useEffect(() => {
+        setData(characters.filter(val => val.favorito === true))
+    },[])
+
     return (
-        <div className="form-class">
-            <Card className='form-card'>
-                <Card.Body>
-                <Card.Title><h1>En qué te podemos ayudar</h1></Card.Title>
-                <Form>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Correo</Form.Label>
-                        <Form.Control type="email" placeholder="nombre@ejemplo.com" />
-                    </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Mensaje</Form.Label>
-                        <Form.Control as="textarea" rows={6} />
-                    </Form.Group>
-                    <Button 
-                        variant="info"
-                        message="enviar"
-                        type="submit"
-                        />
-                </Form>
-                </Card.Body>
-            </Card>
-        </div> 
+        <div className="home-class">
+                <Container>
+                    <Row className='align-item-center'>
+                        {data ? data.map(val =>
+                        <Col lg={4} md={12} className='my-4'>
+                            <Card>
+                                <Card.Img variant="top" src={val.image} />
+                                <Card.Body>
+                                    <Card.Title>{val.name}</Card.Title>
+                                    <Card.Text>
+                                        <p>Especie: {val.species}</p>
+                                        <p>Status: {val.status}</p>
+                                    </Card.Text>
+                                    <Button variant="primary">Favorito</Button>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                        ) : <p>loading...</p>}
+                    </Row>
+                </Container>    
+        </div>
     )
 }
